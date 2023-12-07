@@ -18,33 +18,21 @@ public class ProductViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if (position==0){
-            return new XacNhanFragment();
-        } else if (position==1){
-            return new HoanThanhFragment();
-        } else if (position==2){
-            return new DonHuyFragment();
-        } else {
-            return new XacNhanFragment();
-
+        switch (position)
+        {
+            case 0:
+                return new XacNhanFragment();
+            case 1:
+                return new HoanThanhFragment();
+            case 2:
+                return new DonHuyFragment();
+            default:
+                return new XacNhanFragment();
         }
     }
 
     @Override
     public int getItemCount() {
-
         return 3;
-    }
-    public CharSequence getPageTitle(int position){
-        switch (position){
-            case 0:
-                return "Đang xác nhận";
-            case 1:
-                return "Đã hoàn thành";
-            case 2:
-                return "Đã hủy";
-            default:
-                return "Đang xác nhận";
-        }
     }
 }

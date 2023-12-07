@@ -23,19 +23,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                if (item.getItemId() == R.id.home) {
-                    viewPager2.setCurrentItem(0);
-                }
-                else if (id == R.id.product){
-                    Intent intent = new Intent(MainActivity.this, ProductActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else if (id == R.id.ship){
-                    viewPager2.setCurrentItem(2);
-                }else {
-                    viewPager2.setCurrentItem(3);
-                }
-            }
-        });
-    }
+                   if (item.getItemId() == R.id.home) {
+                        viewPager2.setCurrentItem(0);
+                    }
+                    else if (id == R.id.product){
+                        Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }else if (id == R.id.user){
+                        Intent intent = new Intent(MainActivity.this, UserActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+        }
+    });
+}
 }

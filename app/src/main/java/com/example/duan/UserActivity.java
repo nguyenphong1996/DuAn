@@ -33,8 +33,8 @@ public class UserActivity extends AppCompatActivity {
                     Intent intent = new Intent(UserActivity.this, ProductActivity.class);
                     startActivity(intent);
                     finish();
-                }else {
-                    viewPager2.setCurrentItem(1);
+                }else if (id == R.id.user) {
+                    viewPager2.setCurrentItem(0);
                 }
             }
         });

@@ -11,17 +11,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.duan.R;
+import com.example.duan.adapter.ProductViewPagerAdapter;
+import com.example.duan.adapter.ViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class ProductFragment extends Fragment {
 
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private ProductViewPagerAdapter ProductViewPagerAdapter;
     public ProductFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
     }
 
