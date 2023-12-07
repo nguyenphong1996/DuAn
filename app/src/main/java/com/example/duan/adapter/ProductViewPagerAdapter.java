@@ -18,16 +18,15 @@ public class ProductViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position)
-        {
-            case 0:
-                return new XacNhanFragment();
-            case 1:
-                return new HoanThanhFragment();
-            case 2:
-                return new DonHuyFragment();
-            default:
-                return new XacNhanFragment();
+        if (position==0){
+            return new XacNhanFragment();
+        } else if (position==1){
+            return new HoanThanhFragment();
+        } else if (position==2){
+            return new DonHuyFragment();
+        } else {
+            return new XacNhanFragment();
+
         }
     }
 

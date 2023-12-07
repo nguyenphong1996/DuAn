@@ -9,10 +9,6 @@
           android:title="Product"
           android:icon="@drawable/product"/>
 
-    <item android:id="@+id/ship"
-          android:title="Ship"
-          android:icon="@drawable/ship"/>
-
     <item android:id="@+id/user"
           android:title="User"
           android:icon="@drawable/user"/>

@@ -10,30 +10,31 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-public class MainActivity extends AppCompatActivity {
-    private BottomNavigationView bottomNavigationView;
-    private ViewPager2 viewPager2;
+
+public class UserActivity extends AppCompatActivity {
+
+    BottomNavigationView bottomNavigationView;
+    ViewPager2 viewPager2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-
         bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
             public void onNavigationItemReselected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                 if (item.getItemId() == R.id.home) {
-                    viewPager2.setCurrentItem(0);
-                }
-                else if (id == R.id.product){
-                    Intent intent = new Intent(MainActivity.this, ProductActivity.class);
+                    Intent intent = new Intent(UserActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-                }else if (id == R.id.ship){
-                    viewPager2.setCurrentItem(2);
+                }
+                else if (id == R.id.product){
+                    Intent intent = new Intent(UserActivity.this, ProductActivity.class);
+                    startActivity(intent);
+                    finish();
                 }else {
-                    viewPager2.setCurrentItem(3);
+                    viewPager2.setCurrentItem(1);
                 }
             }
         });
