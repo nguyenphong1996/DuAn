@@ -1,60 +1,65 @@
 package com.example.duan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.duan.dao.UserDAO;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
-
-    private EditText edtUserName, edtRegisterEmail, edtRegisterPass, edtRePass;
-    private Button btn_back, btn_register;
-    private UserDAO userDAO;
+    EditText edt1,edt2,edt3;
+    Button btn1,btn2;
+    @SuppressLint("MissingInflatedId")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        edtUserName = findViewById(R.id.edtUserName);
-        edtRegisterEmail = findViewById(R.id.edtRegisterEmail);
-        edtRegisterPass = findViewById(R.id.edtRegisterPass);
-        edtRePass = findViewById(R.id.edtRePass);
-        btn_back = findViewById(R.id.btn_back);
-        btn_register = findViewById(R.id.btn_register);
-
-        btn_back.setOnClickListener(v -> {
-            finish();
-        });
-
-        userDAO = new UserDAO(this);
-        btn_register.setOnClickListener(new View.OnClickListener() {
+        init();
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String user = edtUserName.getText().toString();
-                String email = edtRegisterEmail.getText().toString();
-                String pass = edtRegisterPass.getText().toString();
-                String repass = edtRePass.getText().toString();
-
-                if (user.equals("") || email.equals("") || pass.equals("") || repass.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-                }else {
-                    if (pass.equals(repass)){
-                        boolean checkRegister = userDAO.register(user, pass, email);
-                        if (checkRegister){
-                            Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }else {
-                            Toast.makeText(RegisterActivity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
-                        }
-                    }else {
-                        Toast.makeText(RegisterActivity.this, "Mật khẩu không trùng khớp", Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String user = edt1.getText().toString();
+                String pass = edt2.getText().toString();
+                String repass = edt3.getText().toString();
+                if (user.equals("")||pass.equals("")||repass.equals("")){
+                    Toast.makeText(RegisterActivity.this, "NHẬP ĐẦY ĐỦ THÔNG TIN", Toast.LENGTH_SHORT).show();
+                    if (user.equals("")){
+                        edt1.setError("VUI LÒNG NHẬP USERNAME");
                     }
+                    if(pass.equals("")){
+                        edt2.setError("VUI LÒNG NNẬP PASSWORD");
+                    }
+                    if(repass.equals("")){
+                        edt3.setError("VUI LÒNG NHẬP LẠI PASSWORD");
+                    }
+                }else if (!pass.equals(repass)){
+                    Toast.makeText(RegisterActivity.this, "MẬT KHẨU KHÔNG TRÙNG KHỚP", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent();
+                    intent.putExtra("user",user);
+                    intent.putExtra("pass",pass);
+                    setResult(1,intent);
+                    finish();
                 }
             }
         });
-        }
+    }
+    private void init(){
+        edt1=findViewById(R.id.edtRegisterEmail);
+        edt2=findViewById(R.id.edtRegisterPass);
+        edt3=findViewById(R.id.edtRePass);
+        btn1=findViewById(R.id.btn_back);
+        btn2=findViewById(R.id.btn_register);
+    }
 }

@@ -57,6 +57,7 @@
                     android:src="@drawable/giatui" />
 
                 <TextView
+                    android:textAlignment="center"
                     android:id="@+id/tvGiatUi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,12 +73,14 @@
                 android:padding="8dp">
 
                 <ImageView
+
                     android:id="@+id/imgDatLich"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/datlich" />
 
                 <TextView
+                    android:textAlignment="center"
                     android:id="@+id/tvDatLich"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,6 +102,7 @@
                     android:src="@drawable/tracuu" />
 
                 <TextView
+                    android:textAlignment="center"
                     android:id="@+id/tvTraCuu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,10 +124,11 @@
                     android:src="@drawable/giaohang" />
 
                 <TextView
+                    android:textAlignment="center"
                     android:id="@+id/tvGiaoHang"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tạo đơn giặt ùi" />
+                    android:text="Giao Hàng" />
             </LinearLayout>
         </LinearLayout>
 
