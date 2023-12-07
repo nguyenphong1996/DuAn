@@ -11,11 +11,11 @@ import com.example.duan.model.DichVu;
 
 import java.util.ArrayList;
 
-public class DAO_DichVu {
+public class DichVuDAO {
     Dbhelper helper;
     SQLiteDatabase db;
 
-    public DAO_DichVu(Context context) {
+    public DichVuDAO(Context context) {
         this.helper = new Dbhelper(context);
     }
 
